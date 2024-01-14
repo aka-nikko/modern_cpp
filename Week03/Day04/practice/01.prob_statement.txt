@@ -1,0 +1,10 @@
+Create a multifile project with the following:
+- a functionalities interface for the following-
+    - ability to create Car and Bike based on inputs provided to make_shared
+    - ability to find the Car and Bike instance with minimum price
+    - ability to find average price of all vehicles stored in a container.
+    - ability to search and return a true or false to indicate whether a vehicle with given ID is present or not.
+    - ability to find and return the count of instances whose type matches with the type provided as a parameter.
+
+- a client file to demonstrate functionalities.
+- relavant class header and implementation as per functionalities to be provided.

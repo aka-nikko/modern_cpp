@@ -1,0 +1,122 @@
+=====================================================
+
+In a class, we have-
+1. Initialization
+   eg. int n1=10
+   vehicle* v1= new vehicle()
+2. Input/Output
+3. Basic operator can be used
+
+=====================================================
+
+Channels:
+01. mike shah
+02. cppcon (back to basics playlist)
+
+03. distrotube (command line)
+04. LearnLinuxTV
+
+Websites:
+01. cppreference.com
+02. thisptr.com
+03. nextptr.com
+04. refactoring.guru
+
+======================================================
+
+RAII: Resource Acquisition Is Initialization
+01. When we acquire Resource, something is initialized.
+02. If I want to acquire Resource, 
+    then I must acquire it while initializing "something"
+
+==========================================================================================
+
+Inheritance - Is a Relationship
+Containment - Has a Relationship
+
+Inheritance -  01. Single
+               02. Multiple
+               03. Hybrid
+               04. Hierarechical (1 Parent, Multiple Child)
+
+Inheritance is done for 2 reasons-  01. Generalization
+                                    02. Specialization
+
+
+Association -  01. Basic Association: There is no inheritance or Containment
+                                      but classes are assiciated.
+                                      Say 2 classes - Bank Acc & Bank Operations-
+                                      Bank b1; Operations obj;
+                                      obj.withdraw(Bank b);
+                                      Bank and Operations classes are associated
+                                      but not inherited or contained.
+
+               02. Composition: It has a "has a" Relationship.
+                                Say, 2 classes A and B. A is composed class and B
+                                is composing class.
+                                If the outer class gets deleted, inner class should
+                                get deleted as well.
+
+               03. Aggregation: Similar to composition but if the outer class gets 
+                                deleted, inner class should not get deleted.
+
+==========================================================================================
+
+01. C and C++ are not connected.
+02. lvalues and rvalues have been revised.
+03. Pointer Semantics are discouraged.
+
+lvalues have storage in the ram and have proper name given by the developer.
+int n1 = 10; (int-datatype, n1-identifier, = assign operator, 10-value, ;segment point)
+n1 is the lvalue. It has a storage and a name.
+#a line of code which doesnt return anything is statement.
+
+rvalues are temp things which have been generated but dont have a storage.
+int n1=magic(5);
+say, magic(5) return 7, this is rvalue.
+n1 is lvalue.
+
+auto keyword is used to infer the datatype of a variable based on the initialization value.
+
+===========================================================================================
+
+noexcept - adding this keyword to a function shows that there is no exception
+           in that function.
+
+noexcept(false) - shows that there will be exceptions.
+
+final - using this keyword, if a class is marked final, then it cannot be extended.
+        you cant make its child class.
+
+
+iterator - abstraction over pointer so we can traverse the elements of a 
+           container without knowing the formula.
+
+===========================================================================================
+
+Decision Tree:
+
+                    Do i need to preserve the old data?
+            |yes|                                       |no|
+Will called function modify data?            Callee or calling func has temp or 
+                                                    permanent data
+    |yes|                                  |perm|                        |temp|
+Call By Value                                                   Should called func also accept
+                                                                        permanent
+                                                                |yes|           |no|
+                                                            call by value     call by reference
+
+========================================================================================
+
+Concepts learned-
+Keywords-
+default, delete, override, final, nullptr, noexcept, auto
+
+Concepts-
+01. enum class
+02. rvalue reference & move Semantics
+03. uniform initialization
+04. member list initialization
+05. constructor delegation
+06. smart pointer/shared_ptr
+07. for-each loop

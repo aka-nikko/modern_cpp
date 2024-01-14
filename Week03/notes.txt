@@ -1,0 +1,198 @@
+Memory (Primary Memory/Ram)
+SoC CHIP (Everything including Memory on the same physical device)
+
+================================================================================
+
+Objectives:
+    01. Concurrency: Ability to do contect-switching between running 
+                     tasks to achieve better performance (concurrent execute)
+
+    02. Parallelism: Doing more than one action at the same moment in time
+                     based on hardware availability.
+
+    03. Learn about lock-based synchronization primitives
+        01. MUTEX
+        02. SEMAPHORE
+        03. RECURSIVE LOCKING
+        04. CONDITIONAL LOCKING
+        05. SCOPE-BASED LOCKING (BASED ON RAII PRINCIPLE)
+
+    04. Algebraic data types in Mordern C++
+        - Optional
+        - Variant (Functional Polymorphism)
+        - Any
+
+    05. Learn some behind the scenes optimization techniques
+        - guranted copy elison
+        - contexpr
+
+    06. if & switch initializers
+
+    07. Structured binding
+
+================================================================================
+
+Regarding Systems
+01. Memory (Primary Memory/RAM)
+02. Processing hardware unit (Intel/AMD/Apple Silicon Device)
+
+================================================================================
+
+std::variant and std::visit
+
+std::variant is an Algebraic Data Type
+std::variant can be used for "functional polymorphism"
+which could be replacement for Runtime Polumorphism
+
+================================================================================
+
+Mapping of Concepts
+Scenario 01: I want to create a small size script like program
+             to perform a simple task.
+Concept to be used: Shell Script in prefered shell
+
+Scenario 02: I want to create a container to store fixed sized
+             of elements.
+Concept to be used: array or std::array (for built-in functions)
+
+Scenario 03: I want to store non-fixed number of elements and I
+             dont want to block consecutive locations in memory 
+             for the same.
+Concept to be used: std::list or your implementation of list
+
+Scenario 04: I want to store non-fixed number of elements and I
+             want to block consecutive locations in memory 
+             for the same.
+Concept to be used: std::vector or your implementation of vector
+
+Scenario 05: I want to create a soecific model/representation of 
+             a layout of data to be used as a reference for storing
+             instances of data.
+Concept to be used: classes or struct
+
+Scenario 06: I want the ability to create subtypes of my model type
+             immediately or in future for each subcategory that need 
+             to be added
+Concept to be used: inheritance
+
+Scenario 07: I want to create an interface for an API to accept a
+             type and all of its subtypes as parameters to the API.
+Concept to be used: generalization with upcasting
+
+Scenario 08: I want to execute different logic for each subtype type
+             passed to the function where parameter is of generalized 
+             type.
+Concept to be used: a). method overriding with implementation only in
+                        derived classes.
+                    b). method overriding with implementation in base
+                        and derived classes both.
+
+Scenario 09: I want to decide how basec operators will behave when
+             used with my specific data type.
+Concept to be used: operator overloading
+
+Scenario 10: I want to convert a pointer to a base class into a pointer
+             to child class in such a way that if conversion fails, I
+             get an exception at RUNTIME.
+Concept to be used: dynamic cast
+
+Scenario 11: I want to convert a pointer to a type to some other type 
+             in sucha a way that if conversion fails, I can verify 
+             that at compile time.
+Concept to be used: static cast
+
+Scenario 12: I want to manage resources allocated based on scope of
+             attached object's lifetime.
+Concept to be used: smart pointer
+
+Scenario 13: I want to decide which special member function will be
+             available or unavailable for a data type.
+Concept to be used: defaulted or delete member functions
+
+Scenario 14: I want to store type=erased behaviour in the form of a
+             function in a wrapper.
+Concept to be used: std::function_wrapper
+
+Scenario 15: I want to store reference as a value
+Concept to be used: std::reference_wrapper
+
+Scenario 16: I want to use composition but in such a way that if 
+             composed type (outer class) is instantiated, it should
+             not take a null value of composing class (inner class)
+Concept to be used: std::reference_wrapper for inner class
+
+=========================================================================
+
+Terminal-
+ls 
+
+-a: hidden items
+-l: long form/detailed
+-h: human readable form (sizes)
+-R: recursive list subfolders
+-t: sort by time
+-r: reverse sort (use with -t or )
+
+
+Commands-
+ls
+
+cd
+mv
+rm
+rmdir
+mkdir
+touch
+
+find
+grep
+sed
+awk
+ps
+top
+ssh
+
+======================================================================
+
+Parts of an Operating System:
+01. Kernel: Software Program (written either in C or Rust)
+        - Heart of the OS (core of the OS)
+        - Process Scheduling, Threading and Concurrency, Device Driver and its usage, Security, File Management
+
+02. Applications & Utilities:
+        - GNU Utilities & other programs (pre-installed & available for install)
+
+03. Desktop Environment:
+        - GUI visible to the user (which performs operations as demanded)
+        - eg. Gnome(current), Unity Desktop, Cosmic, KDE Plasma, etc
+
+04. Shell:
+        - bash, zsh, fish
+
+05. Package Manager:
+        - apt (aptitute), rpm, dnf, pacman, winget(windows), brew
+
+====================================================================
+
+find command : find files and folders based on:
+    - pattern of their names
+    - time of creation or last modification
+    - based on owner (user who owns the file/folder)
+    - based on permission
+    - type (file or folder)
+    - depth (leven 0 folder, 1 level, N leven deep search)
+    - mix and match of all the above things
+
+
+find all files in week 3 folder that are cpp extension files
+general linux format
+command-name <option>
+find ../ -name "*.cpp" -type f
+
+find ../ -user kpit
+
+find ../ -name "*.cpp" -type f -exec head -n1 {} \;
+
+find ../ -name "*.cpp" -type f -exec wc -l {} \;
+
+find ../

@@ -1,0 +1,12 @@
+101
+Maruti_Dzire
+850000
+0
+102
+Honda_City
+130000
+0
+103
+Bolero
+100000
+1

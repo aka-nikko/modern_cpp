@@ -1,0 +1,31 @@
+Create a class DataModeller which has the following functionalities
+
+- _instance which is either an instance of type 
+    unique_ptr to BusinessOwner or unique_ptr to Employee
+
+- _goodsPurchased which is a vector of float values indicating
+    prices of goods sold
+
+- an overload of the operator() which includes the logic to
+    print the average price of all goods purchased by the 
+    Employee or BusinessOwner.
+
+=========================================
+In functionalities.cpp
+
+- A function TaxPayable that returns a float based on the following
+    rules
+    - For BusinessOwner, tax payable is 10% of the value of (_revenue minus _expense_amount )
+    - For employee it is 10% of the _salary for REGULAR Employee or 20% for OVERSEAS Employee
+
+Create a class BusinessOwner which has the following parameters
+    - _expense_amount which is a float
+    - _revenue which is a float 
+    _ registered business name which is a string value
+    - _business_type which is either SME or MNC
+
+Create a class Employee which has the following parameters
+
+    - _name which is a string
+    - _type which is either REGULAR or OVERSEAS
+    - _salary which is a float value

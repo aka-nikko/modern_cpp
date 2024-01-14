@@ -1,0 +1,128 @@
+Structured Programming
+    - C Programming
+    - Imperative coding
+
+Object Oriented Programming
+    - Represent state based on model
+    - Extend, Associate, Compose, Aggregate, Generalize, & Abstract behaviour and Types
+    - It is suitable scale projects
+
+=======================================================================================
+
+lamda
+map
+filter
+reduce
+closure
+type erasure
+wrapper
+partial function
+value semantics
+
+monoid
+monad
+
+=====================================================================================
+
+a lambda function with nothing in the capture clause is implicitly 
+convertible to a function pointer
+
+=====================================================================================
+
+01. Every object has a type
+    a). Function should also have a type
+        (signature of a fucntion is its type)
+
+02. Pass object to functions as parameters
+    b). Functions can be passed via wrapper or function
+        pointer to other function 
+
+03. Return objects from functions
+    c). Functions can be returned via wrapper or function
+        pointer from other functions
+
+04. We can obtain address of objects
+    d). We can obtain address (location) of any function
+
+05. Objects can be stored in containers
+    e). Function can also be stored in containers via wrapper
+        or function pointer.
+
+======================================================================================
+
+()  - paren paren
+std - stud
+/etc- etsy
+
+======================================================================================
+
+Lamdas can be-
+1. Predicate - Returns bool (true or false)
+2. Binary Operation - Taked 2 operands and perform Binary Operation
+3. Comparator - Takes 2 operands and compares them and returns bool (true or false)
+
+======================================================================================
+
+std::bind, std::thread, std::async
+std::decay - any function that uses decay will not accept data by reference
+
+Function templates ref and cref are helper functions that 
+generate an object of type std::reference_wrapper
+
+=====================================================================================
+
+Editor & IDE:
+    eg. VSCode
+    eg. NeoVim
+
+Version Control:
+    eg. Git*
+    eg. Mercurial
+    eg. SVN
+
+Terminal:
+    eg. Gnome-Terminal
+    eg. Alakritty
+    eg. Konsole
+Bonus: Session Manager: Tmux
+
+Shell:
+    eg. bash
+    eg. Fish
+    eg. zsh
+Bonus: Shell Customize
+
+If API has to be tested:
+    eg. POSTMAN
+    eg. Thunder Client (VSCode)
+    eg. Curl (GNU Utility)
+
+Unit Testing:
+    eg. CxxTestGen Framework
+
+System Level Package Manager:
+    eg. apt
+    eg. dnf
+    eg. winget
+
+Framework Level Package Manager:
+    eg. pip (Python), ng, conda, etc.
+
+
+lamda function
+function wrapper
+reference wrapper
+std::ref
+std::bind
+
+========================================================================================
+
+std::bind
+
+                    _1      _2      _3
+original formula    (x       y       z)
+                     |       |       |
+                    100     _2      _3
+                             |       |
+                     user fn(30,    40)
+
