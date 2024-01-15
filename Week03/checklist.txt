@@ -45,3 +45,28 @@ Developer Checklist
     b. Installing & Maintaining VM using Hypervisor (at least through UI)
     c. Theory of Virtualization
     d. Networking in VM^
+
+### Database
+    a. Relational & Non-Relational Databases
+
+### Networking Fundamentals
+    a. IP Address, Port Number, Protocols (eg TCP, UDP)
+    b. Subnetting, Masks, ISO-OS Layers
+    c. LAN, VPN, VLAN, Proxy Servers
+    d. Firewalls
+
+### Containerization using a container management tool
+    a. Container management commands
+    b. Images (Using & Creating)
+    c. Networking Modes of the Container
+
+### Type of API & API Concepts
+    a. REST API
+    b. SOAP API
+    c. RPC, gRPC, JSON_RPC
+    d. graphQL
+
+(Note: Networking Fundamentals & Virtualization is must)
+### Cloud Computing Concepts
+    a. SaaS, PaaS, etc
+    b. DNS, Instance Creation, API Routing, Lead Balancing, Real-Time Message Processing Queues
