@@ -50,6 +50,10 @@ void CreateObjects(Container& data){
 */
 
 void CalculateTaxPayable(const Container & data){
+    if(data.empty()){
+        throw std::runtime_error("Data is Empty!");
+    }
+    
     for(const DataVariant& ptr : data){
         const Vtype& val = ptr->instance();
         if(std::holds_alternative<BusinessPointer>(val)){

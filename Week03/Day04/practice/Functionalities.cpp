@@ -98,7 +98,7 @@ std::optional<std::list<VType>> InstanceMatchingType(const Container& data, Vehi
         throw std::runtime_error("Data is Empty!");
     }
 
-    Container result;
+    std::list<VType> result;
     for(const VType& v:data){
         std::visit(
             [&](auto&& val){
