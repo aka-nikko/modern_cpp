@@ -1,0 +1,53 @@
+Custom Allocator
+
+I want to design an application to process 10 recent transactions made by a user by fetching their details from the database.
+OPERATION:
+Each transactions amount, time and recepiant has to be printed to a log file.
+NOTE: one transaction has no relatibility with others ie. all transactions are mutually exclusive.
+Every transaction has following state
+    transaction time | amount | source | destination
+Container to use: Array
+
+Example 01:
+I want to design an application where a new data value is received at a fixed interval and gets added at the back of the data values so far. I want to process only the oldest value from these values at a time and print the value on the console.
+I am not allowed to modify any received value and as a value gets processed, it needs to be removed from the transaction pending set.
+Container to use: Queue
+
+
+Data Structure - Arrangement of Data
+Data Container - Use of Data Structure to provide featyres to user.
+
+HASH VALUE or HASH:
+The answer of a mathematical operation applied on the key.
+
+HASH FUNCTION:
+This is the operation applied.
+Eg. MODULUS 5
+
+HASH TABLE:
+This is the table of content or a structure where postion of each key is preserved. 
+The key is linked with the actual value.
+
+[101 | Nikko | 60000.0f]
+[102 | Anshul| 80000.0f]
+[103 | Rohan | 80000.0f]
+[104 | New   | 10000.0f]
+
+HASH FUNCTION: MOD 3
+====================
+Step 01: Apply hash function on each key
+    a. 101%3=2
+    b. 102%3=0
+    c. 103%3=1
+    d. 104%3=2
+
+HASH TABLE-
+row 0--> [102 | [102 | Anshul| 80000.0f]]
+row 1--> [103 | [103 | Rohan | 80000.0f]]
+row 2--> [101 | [101 | Nikko | 60000.0f]] --> [104 | [104 | New   | 10000.0f]]
+
+============================================================================
+
+mike shah - stl algorithm
+engineer man - regex
+dear functional bros
