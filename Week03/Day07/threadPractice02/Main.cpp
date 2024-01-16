@@ -9,8 +9,8 @@ int main(){
     CreateCarObjects(mydata, engineData);
     CreateEvTruckObjects(mydata);
 
-    // std::cout<<"All Objects:"<<std::endl;
-    // DisplayObjects(mydata);
+    std::cout<<"All Objects:"<<std::endl;
+    DisplayObjects(mydata);
 
     std::cout<<"Searched Vehicle: "<<std::endl;
     std::thread searchVehicleByIdThread(
@@ -25,46 +25,68 @@ int main(){
     );
     searchVehicleByIdThread.join();
 
-    std::future<std::shared_ptr<Vehicle>> thread=std::async(
-        std::launch::async,
-        [&](){
-            try{
-                return SearchVehicleById(mydata, "101");
-            }catch(std::runtime_error msg){
-                std::cout<<msg.what();
-                return std::shared_ptr<Vehicle>(nullptr);
-            };
+
+    std::cout<<"Vehicle with Given ID: "<<std::endl;
+    try{
+        std::future<std::shared_ptr<Vehicle>> thread1=std::async(
+            std::launch::async,
+            &SearchVehicleById,
+            std::ref(mydata),
+            "101"
+        );
+        std::cout<<*(thread1.get())<<std::endl;
+    }catch(std::runtime_error msg){
+        std::cout<<msg.what();
+    };
+
+
+    std::cout<<"Count of Given Vehicle: ";
+    try{
+        std::promise<std::string> pr;
+        std::future<std::string> ft=pr.get_future();
+
+        std::future<int> thread2 = std::async(
+            std::launch::async,
+            &CountOfGivenVehicle,
+            std::ref(mydata),
+            std::ref(ft)
+        );
+
+        pr.set_value("Car");
+
+        std::cout<<thread2.get()<<std::endl;
+    }catch(std::runtime_error msg){
+        std::cout<<msg.what();
+    };
+
+
+    std::cout<<"Average Price of Given Vehicle: ";
+    try{
+        std::future<float> thread3 = std::async(
+            std::launch::async,
+            &AveragePriceOfGivenVehicle,
+            std::ref(mydata),
+            "Car"
+        );
+        std::cout<<thread3.get()<<std::endl;
+    }catch(std::runtime_error msg){
+        std::cout<<msg.what();
+    };
+
+    std::cout<<"Vehicle with Given Conditions:"<<std::endl;
+    try{
+        std::future<Container> thread4 = std::async(
+            std::launch::async,
+            &RegistrationChargeCondition,
+            std::ref(mydata)
+        );
+        result=thread4.get();
+        for(auto veh : result){
+            std::cout<<*veh<<std::endl;
         }
-    );
-    std::shared_ptr<Vehicle> search=thread.get();
-    if(search){
-        std::cout<<*search<<std::endl;
-    }
-
-    
-
-    // std::cout<<"Count of Given Vehicle: ";
-    // // <<CountOfGivenVehicle(mydata, "Car")<<std::endl;
-    // std::future<int> countOfGivenVehiclesThread = std::async(std::launch::async,[&](){
-    //     try{
-    //         return CountOfGivenVehicle(mydata,"Carw");
-    //     }catch(std::runtime_error msg){
-    //         std::cout<<msg.what();
-    //         return 0;
-    //     };
-    // });
-    // std::cout<<countOfGivenVehiclesThread.get()<<std::endl;
-
-
-
-    // std::cout<<"Average Price of Given Vehicle: "
-    // <<AveragePriceOfGivenVehicle(mydata, "Car")<<std::endl;
-
-    // std::cout<<"Vehicle with Given Conditions:\n"<<std::endl;
-    // result = RegistrationChargeCondition(mydata);
-    // for(auto veh : result){
-    //     std::cout<<*veh<<std::endl;
-    // }
+    }catch(std::runtime_error msg){
+        std::cout<<msg.what();
+    };
 
     return 0;
 }

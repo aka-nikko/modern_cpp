@@ -6,43 +6,44 @@ void CreateCarObjects(Container& data, EngineContainer& engineData){
             "1001"
         )
     );
+    engineData.emplace_back(
+        std::make_shared<Engine>(
+            "1002"
+        )
+    );
+    engineData.emplace_back(
+        std::make_shared<Engine>(
+            "1003"
+        )
+    );
+
     data.emplace_back(
         std::make_shared<Car>(
             "101",
             "Audi",
             12000.0f,
             CarCategory::SEDAN,
-            engineData.back()
+            engineData[0]
         )
     );
 
-    engineData.emplace_back(
-        std::make_shared<Engine>(
-            "1002"
-        )
-    );
     data.emplace_back(
         std::make_shared<Car>(
             "102",
             "BMW",
             2400000.0f,
             CarCategory::HATCHBACK,
-            engineData.back()
+            engineData[1]
         )
     );
 
-    engineData.emplace_back(
-        std::make_shared<Engine>(
-            "1003"
-        )
-    );
     data.emplace_back(
         std::make_shared<Car>(
             "103",
             "Honda",
             1200000.0f,
             CarCategory::SEDAN,
-            engineData.back()
+            engineData[2]
         )
     );
 }
@@ -95,16 +96,17 @@ std::shared_ptr<Vehicle> SearchVehicleById(Container & data, std::string id){
         }
     }
 
-    throw std::runtime_error("Vehicle With Given ID Not Found!");
+    throw std::runtime_error("Vehicle With Given ID Not Found!\n");
 }
 
-int CountOfGivenVehicle(Container &data, std::string searchVehicle){
+int CountOfGivenVehicle(Container &data, std::future<std::string>& ft){
     if(data.empty()){
         throw std::runtime_error("Data is Empty!");
     }
 
     int carCount=0;
     int evTruckCount=0;
+    std::string searchVehicle=ft.get();
 
     if(searchVehicle=="Car"){
         for(auto vehicle : data){

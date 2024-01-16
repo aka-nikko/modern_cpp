@@ -5,6 +5,7 @@
 #include"EvTruck.h"
 #include<memory>
 #include<vector>
+#include<future>
 
 using Pointer  = std::shared_ptr<Vehicle>;
 using Container= std::vector<Pointer>;
@@ -25,7 +26,7 @@ void DisplayObjects(Container& data);
 std::shared_ptr<Vehicle> SearchVehicleById(Container& data, std::string id);
 
 //Function to Get Count of Given Vehicle
-int CountOfGivenVehicle(Container& data, std::string searchVehicle);
+int CountOfGivenVehicle(Container& data, std::future<std::string>& ft);
 
 //Function to Get Average Price of Given Vehicles
 float AveragePriceOfGivenVehicle(Container& data, std::string searchVehicle);
