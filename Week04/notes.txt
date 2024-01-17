@@ -57,3 +57,43 @@ dear functional bros
 Bubble Sort Technique can be resolved in (N^2+N)/2 access of elements
 This is quadratic order of growth with respect of N because
 for any value of N greater than 1, (N^2+N)/2 is never greater than N^2.
+
+==========================================================================
+
+vector
+Array
+list
+unordered_map
+set
+queue
+priority queue
+
+========================================================================
+
+int n1       : pass n1 by value | modifyable | copy created
+int& n1      : pass n1 by reference | modifyable | no copy created
+const int n1 : pass n1 by value | not modifyable | copy created
+const int& n1: accept n1 by lavalue or rvalue | not modifyable | lvalue-by reference, rvalue-move
+int&& n1     : move of rvalue into n1
+int* n1      : pass pointer by value to n1 | modifyable | 
+const int* n1:
+const int const* n1
+int const n1 : 
+
+
+if && is used with type deduction T, it doesnt automatically mean rvalue reference
+
+==========================================================================
+variadic templates-
+ellipsis (...)
+==========================================================================
+template <typename T>
+void printArgs(T arg) {
+    std::cout << arg << std::endl;
+}
+
+template <typename T, typename... Args>
+void printArgs(T first, Args... args) {
+    std::cout << first << " ";
+    printArgs(args...);
+}
