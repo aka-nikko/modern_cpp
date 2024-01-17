@@ -51,3 +51,9 @@ row 2--> [101 | [101 | Nikko | 60000.0f]] --> [104 | [104 | New   | 10000.0f]]
 mike shah - stl algorithm
 engineer man - regex
 dear functional bros
+
+===========================================================================
+
+Bubble Sort Technique can be resolved in (N^2+N)/2 access of elements
+This is quadratic order of growth with respect of N because
+for any value of N greater than 1, (N^2+N)/2 is never greater than N^2.
