@@ -97,3 +97,85 @@ void printArgs(T first, Args... args) {
     std::cout << first << " ";
     printArgs(args...);
 }
+
+==========================================================================
+
+unordered_map: hash table based data Container
+map: trees based (usually self balancing)
+unordered_set: hash table
+set: red black tree
+multimap: used when multiple values have to be stored with same key attached to them
+multiset: same as multimap. It gived a sorted storage of elements
+
+eg. 1,10,11,10,10,7,11 multiset: {1,7,10,10,11,11}
+
+Set data container uses equivalence and not equality
+
+========================================================================
+CMakeLists.txt-
+========================================================================
+cmake_minimum_required(VERSION 3.12)  # Versio of cmake
+
+project(MyProject)  # Project name
+
+# Set C++ standard (e.g., C++11, C++14, C++17)
+set(CMAKE_CXX_STANDARD 17)
+
+# Source cpp files
+set(SOURCE_FILES
+    src/main.cpp
+)
+
+# Create Executable
+add_executable(MyExecutable ${SOURCE_FILES})
+
+# Optionally, you can set additional properties, include directories, etc.
+# For example, if you have header files in the "include" folder:
+# target_include_directories(MyExecutable PRIVATE include)
+
+Commands-
+mkdir build
+cd build
+cmake ..
+=========================================================================
+
+Data: Representing Employee IDs for various Employees
+      e1             e2              e3             e4             e5
+[ 101 | Nikko] [ 102 | Anshul] [ 103 | Rahul] [ 104 | Mehul] [ 105 | Mayank]
+
+Option 01: Array
+- Fized sized container
+- Memory has to be reserved before adding elements
+- Storage is contiguous
+- Elements can be accessed via index
+- Constant time add, remove, read, update using index
+
+Option 02: Vector
+- We can increase the number of elements at any point
+- Storage is contiguous
+- If there is no space available adjacent to current memory, all objects will be shifted
+- adding elements at end, accessing an element to read, updating can all be performed via index position in constant time
+- memory can be reserved in advance in some implementation like STL
+ 
+ Option 03: Linked List
+ - Data will not be stored contiguously (not always atleast)
+ - For each new element to be added, a new node of data is created by allocating memory
+ - Since memory is not supposed to be contiguous, works well for large number of items
+ - Operations have different time complexity (OBVIOUSLY)
+
+Option 04.a: Hash Table with Key Value Pairs. Only 1 Value per Key (unordered map)
+- Hashing based on a hash function applied on keys determines bucket (one row of table) to store the value
+- Amortized cost of Operations
+
+Option 04.b: Hash Table with Key Value Pairs. Multiple Value per Key (unordered multimap)
+- One key may be associated with multiple values
+- Amortized cost of Operations
+
+Option 05: Set with Custom Comparison logic created via a comparator (std::set)
+- Duplicates will not be allowed
+- Duplication is determined using equivalence principle
+
+Option 06: Data in a Stack based on some type of Container (std::stack)
+- Only one element will be available for operation (LILO order)
+- Underlying implementation can be decided prior to instantiation of stack
+
